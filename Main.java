@@ -5,7 +5,6 @@ public class Main {
         String s2 = new StringBuilder(s1).reverse().toString();
 
         int n = s1.length();
-        
         int m = s2.length();
         
         
