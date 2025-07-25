@@ -12,7 +12,7 @@ public class Main {
 
         // System.out.println(LongestPalindromicSubsequence.lps(n, m, s1, s2));
 
-        String res = ShortestCommonSubsequence.scs(n, m, s1, s2);
-        System.out.println(res);
+        // String res = ShortestCommonSubsequence.scs(n, m, s1, s2);
+        // System.out.println(res);
     }
 }
