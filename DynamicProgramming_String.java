@@ -26,7 +26,7 @@ public class DynamicProgramming_String {
         
     }
 
-     public  static int  LongestPalindromicSubsequence(int n,int m, String s1,String s2){
+    public  static int  LongestPalindromicSubsequence(int n,int m, String s1,String s2){
         int[][] dp = new int[n+1][m+1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
@@ -43,7 +43,7 @@ public class DynamicProgramming_String {
         return dp[n][m];
     }
 
-     public static String ShortestCommonSupersequence(int n,int m,String s1,String s2){
+    public static String ShortestCommonSupersequence(int n,int m,String s1,String s2){
 
         int[][] dp = new int[n+1][m+1];
 
@@ -93,5 +93,20 @@ public class DynamicProgramming_String {
         }   
 
         return s.reverse().toString();
+    }
+
+    public static int DistinctSubsequence(int i,int j,String s1,String s2,int[][] dp){
+        if(j<0) return 1;
+        if(i<0) return 0;
+        if(dp[i][j] != -1){
+            return dp[i][j];
+        }
+        if(s1.charAt(i) == s2.charAt(j)){
+            int move = DistinctSubsequence(i-1,j-1,s1,s2,dp);
+            int stay = DistinctSubsequence(i-1,j,s1,s2,dp);
+        return dp[i][j] = (move + stay);
+        }else{
+            return dp[i][j] = DistinctSubsequence(i-1,j,s1,s2,dp);
+        }
     }
 }
