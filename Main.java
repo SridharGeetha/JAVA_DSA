@@ -3,8 +3,28 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr =  {1,3,1};
-        System.out.println(DynamicProgramming_LIS.MinimumMountainRemovals(arr));
+        int n = 9;
+        int[] cuts = {5,6,1,4,2};
+        int c = cuts.length;
+        int[] arr = new int[c + 2];
+        System.arraycopy(cuts, 0, arr, 1, c);
+        arr[0] = 0;
+        arr[c+1] = n;
+        Arrays.sort(arr);
+        int[][] dp = new int[n+2][n+2];
+        for(int[] row : dp){
+            Arrays.fill(row,-1);
+        }
+
+        int res = DynamicProgramming_MCM.MinimumCostToCutStick_Memoization(1, c, arr, dp);
+
+        // int res = DynamicProgramming_MCM.MatrixChainMultiplication_Memoization(1,n-1 , arr,dp);
+        // int res1 = DynamicProgramming_MCM.MatrixChainMultiplication_Tabulation(arr);
+        
+        System.out.println(res);
+
+        // int[] arr =  {1,3,1};
+        // System.out.println(DynamicProgramming_LIS.MinimumMountainRemovals(arr));
 
         // int a[] = {3, 4, 9, 1};
         // int b[] = {5, 3, 8, 9, 10, 2, 1};
