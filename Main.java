@@ -3,25 +3,58 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int n = 9;
-        int[] cuts = {5,6,1,4,2};
-        int c = cuts.length;
-        int[] arr = new int[c + 2];
-        System.arraycopy(cuts, 0, arr, 1, c);
-        arr[0] = 0;
-        arr[c+1] = n;
-        Arrays.sort(arr);
-        int[][] dp = new int[n+2][n+2];
-        for(int[] row : dp){
-            Arrays.fill(row,-1);
-        }
+        String s = "abaccdbbd";
+        int k = 3;
+        int[] dp = new int[s.length()];
+        Arrays.fill(dp, -1);
+        int res = DynamicProgramming_MCM.MaxNumOfPalindromeSubstring(0, k, s, dp);
 
-        int res = DynamicProgramming_MCM.MinimumCostToCutStick_Memoization(1, c, arr, dp);
+        // int[] arr = {1,15,7,9,2,5,10};;
+        // int  k = 3;
+        // int[] dp = new int[arr.length];
+        // Arrays.fill(dp, -1);
+        // int res = DynamicProgramming_MCM.PartionArrayMaximumSum(0, arr, k, dp);
+
+        System.out.println(res);
+
+        // String s = "aab";
+        // int[][] dp = new int[s.length()][s.length()];
+        // for(int[] row : dp){
+        //     Arrays.fill(row,-1);
+        // }
+        // int res = DynamicProgramming_MCM.PalindromePartioning(0,s.length()-1, s,dp);
+
+        // System.out.println(res);
+
+        // String s = "T|T&F^T";
+        // int n = s.length();
+        //  int[][][] dp = new int[n][n][2];
+        // for (int[][] is : dp) {
+        //     for (int[] row : is) {
+        //         Arrays.fill(row, -1);
+        //     }
+        // }
+        // int res = DynamicProgramming_MCM.EvaluateBooleanExpression(0, s.length()-1, 1, s, dp);
+
+        // System.out.println(res);
+        // int n = 9;
+        // int[] cuts = {3,1,5,8};
+        // int c = cuts.length;
+        // int[] arr = new int[c + 2];
+        // System.arraycopy(cuts, 0, arr, 1, c);Kz
+        // arr[0] = 1;
+        // arr[c+1] = 1;
+        // int[][] dp = new int[c+2][c+2];
+        
+        // int res =     DynamicProgramming_MCM.BurstBallons_Tabulation(arr, c);
+        // int res = DynamicProgramming_MCM.BurstBallons_memoization(1, c, arr, dp);
+
+        // int res = DynamicProgramming_MCM.MinimumCostToCutStick_Memoization(1, c, arr, dp);
 
         // int res = DynamicProgramming_MCM.MatrixChainMultiplication_Memoization(1,n-1 , arr,dp);
         // int res1 = DynamicProgramming_MCM.MatrixChainMultiplication_Tabulation(arr);
         
-        System.out.println(res);
+        // System.out.println(res);
 
         // int[] arr =  {1,3,1};
         // System.out.println(DynamicProgramming_LIS.MinimumMountainRemovals(arr));
