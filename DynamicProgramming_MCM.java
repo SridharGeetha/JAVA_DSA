@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class DynamicProgramming_MCM {
 
     public static int MatrixChainMultiplication_Memoization(int i,int j,int[]arr,int[][] dp){
@@ -240,5 +242,38 @@ public class DynamicProgramming_MCM {
         }
 
         return dp[i] = maxi;
+    }
+
+     //Hard
+    public static boolean Scramble_String(String s1 , String s2,Map<String,Boolean> dp){
+        int n = s1.length();
+
+        if(n == 1){
+            return s1.equals(s2);
+        }
+
+        if(s1.equals(s2)){
+            return true;
+        }
+
+        String key = s1+" "+s2;
+
+        if(dp.containsKey(key)){
+            return dp.get(key);
+        }
+
+        for (int i = 1; i < n; i++) {
+            if (Scramble_String(s1.substring(0,i), s2.substring(0,i), dp) && Scramble_String(s1.substring(i), s2.substring(i), dp)) {
+                dp.put(key, true);
+                return true;
+            }
+            if(Scramble_String(s1.substring(0,i), s2.substring(n-i), dp) && Scramble_String(s1.substring(i), s2.substring(0,n-i), dp)){
+                 dp.put(key, true);
+                 return true;
+            }
+        }
+
+         dp.put(key, false);
+         return false;
     }
 }

@@ -1,13 +1,21 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
-        String s = "abaccdbbd";
-        int k = 3;
-        int[] dp = new int[s.length()];
-        Arrays.fill(dp, -1);
-        int res = DynamicProgramming_MCM.MaxNumOfPalindromeSubstring(0, k, s, dp);
+        String s1 = "abcde";
+        String s2 = "caebd";
+        Map<String,Boolean> dp = new HashMap<>();
+        boolean res = DynamicProgramming_MCM.Scramble_String(s1, s2, dp);
+
+
+        // String s = "abaccdbbd";
+        // int k = 3;
+        // int[] dp = new int[s.length()];
+        // Arrays.fill(dp, -1);
+        // int res = DynamicProgramming_MCM.MaxNumOfPalindromeSubstring(0, k, s, dp);
 
         // int[] arr = {1,15,7,9,2,5,10};;
         // int  k = 3;
